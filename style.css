@@ -1,0 +1,322 @@
+:root {
+  --time: 2s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading-screen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0e0e0e;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fff;
+  animation: hide 0.25s linear forwards 1.5s;
+}
+.loading-bar {
+  border: 2px solid rgb(247, 244, 244);
+  width: 153px;
+  height: 20px;
+  border-radius: 50px;
+  background: transparent;
+}
+.loading {
+  height: 100%;
+  border-radius: 50px;
+  animation: loading 1.5s linear forwards;
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+@keyframes loading {
+  0% {
+    width: 0px;
+    background: #fff;
+  }
+  100% {
+    width: 150px;
+    background: #ff9b9b;
+  }
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.greet {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 2.8rem;
+  pointer-events: none;
+  color: #fff8f8;
+  font-size: 2rem;
+  overflow: hidden;
+}
+
+.greet_1 {
+  position: absolute;
+  left: -50%;
+  top: 5%;
+  animation: slide_from_left var(--time) linear forwards 3.5s,
+    un_show 1s linear forwards 5.5s;
+  transition: animation 1s;
+  pointer-events: none;
+}
+@keyframes slide_from_left {
+  0% {
+    opacity: 0;
+    left: -50%;
+  }
+  100% {
+    opacity: 1;
+    left: 2%;
+  }
+}
+
+.greet_2 {
+  position: absolute;
+  right: -39%;
+  top: 50%;
+  /* transform: translateY(-50%); */
+  animation: slide_from_right var(--time) linear forwards 6.5s,
+    un_show 1s linear forwards 8.5s;
+  transition: animation 1s;
+  pointer-events: none;
+}
+@keyframes slide_from_right {
+  0% {
+    opacity: 0;
+    right: -10%;
+  }
+  100% {
+    opacity: 1;
+    right: 2%;
+  }
+}
+
+.greet_3 {
+  position: absolute;
+  left: -50%;
+  bottom: 5%;
+  animation: slide_from_left var(--time) linear forwards 9.5s,
+    un_show 1s linear forwards 11.5s;
+  transition: animation 1s;
+  pointer-events: none;
+}
+@keyframes un_show {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.cake_and_letter {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.letter {
+  width: 24rem;
+  padding: 19px;
+  color: #b44444;
+  background-color: #ffefd5;
+  position: absolute;
+  left: 19rem;
+  top: 14rem;
+  animation: show var(--time) linear forwards 14s;
+  opacity: 0;
+}
+
+.cake {
+  width: 19rem;
+  animation: show var(--time) linear forwards 1.5s,
+    slide_to_right 1.5s linear forwards 12.5s;
+  position: absolute;
+  top: 9rem;
+  left: 36rem;
+  filter: drop-shadow(1px 1px 10px rgba(255, 255, 255, 0.874));
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes slide_to_right {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(13rem);
+  }
+}
+.button {
+  width: 8rem;
+  height: 2.5rem;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: -4rem;
+  left: 45rem;
+  background-color: rgb(81, 253, 90);
+  color: #fff;
+  font-size: 1.5rem;
+  opacity: 0;
+  animation: show var(--time) forwards 16s;
+}
+.button:hover {
+  box-shadow: 0 0 15px rgb(81, 253, 90);
+}
+
+@import url("https://fonts.googleapis.com/css?family=Baloo+Thambi|Muli|Righteous");
+
+/* 
+font-family: 'Righteous', cursive;
+font-family: 'Baloo Thambi', cursive;
+font-family: 'Muli', sans-serif;
+*/
+::selection {
+  background-color: transparent;
+}
+
+body {
+  color: #303030;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  /* font-family: "Righteous", cursive; */
+  font-family: "Dancing Script", cursive;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.block-audio {
+  display: none;
+}
+
+.mahi_wish {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: #fff;
+}
+
+.mahi_wish p span {
+  display: block;
+  font-family: "Baloo Thambi", cursive;
+  letter-spacing: initial;
+}
+
+.mahi_wish p {
+  font-size: 90px;
+  line-height: 1.5;
+  letter-spacing: 4.5px;
+  animation: show 2s ease forwards ;
+}
+
+.mahi_wish p span i {
+  font-style: normal;
+  color: #f44336;
+}
+
+p.fixed {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  font-family: "Muli", sans-serif;
+  font-size: 14px;
+}
+
+p.fixed span {
+  position: absolute;
+  right: 5%;
+  font-size: 12px;
+  color: #ffeb3b;
+}
+
+@media only screen and (max-width: 768px) {
+  .mahi_wish p {
+    font-size: 20px;
+    line-height: 1.5;
+    letter-spacing: 0px;
+  }
+}
+
+.happy-new-year {
+  display: none; /* initially hide the happy-new-year div */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* Định nghĩa hiệu ứng ẩn hiện */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Thời gian và kiểu chuyển đổi */
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Thời gian và kiểu chuyển đổi */
+}
+
+/* Ẩn phần tử khi có lớp 'hidden' */
+.hidden {
+  display: none;
+}
